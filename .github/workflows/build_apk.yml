@@ -33,7 +33,9 @@ jobs:
         run: flutter pub get
       - name: Flutter build apk
         run: flutter build apk
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: release-apk
           path: build/app/outputs/apk/release/syncreve-release.apk
+          if-no-files-found: error
+          retention-days: 30
